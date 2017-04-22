@@ -11,7 +11,9 @@ const SumType = t.func([t.Number, t.Number], t.Number);
 const sum = SumType.of((a, b) => a + b);
 
 // Comment calls to check the next one
-sum(1, 's'); // => throws '[tcomb] Invalid value "s" supplied to [Number, Number]/1: Number'
+sum('1', 2); // TypeError: [tcomb] Invalid value "1" supplied to arguments of function (Number, Number) => Number/0: Number
+// Notice how "Number/1" indicates parameter position
+sum(1, 's'); // TypeError: [tcomb] Invalid value "s" supplied to arguments of function (Number, Number) => Number/1: Number
 
 // Also you this checks output
 const sum2 = SumType.of((a, b) => 'jota');
